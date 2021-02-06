@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="grey lighten-3">
+      <Header />
       <Table />
     </v-main>
   </v-app>
@@ -8,11 +9,13 @@
 
 <script>
 import Table from './components/Table';
+import Header from './components/Header';
 
 export default {
   name: 'App',
 
   components: {
+    Header,
     Table
   }
 };

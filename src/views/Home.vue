@@ -1,16 +1,11 @@
 <template>
   <div class="home">
-    <Table />
+    oi
   </div>
 </template>
 
 <script>
-import Table from '@/components/Table.vue';
-
 export default {
-  name: 'Home',
-  components: {
-    Table
-  }
+  name: 'Home'
 };
 </script>

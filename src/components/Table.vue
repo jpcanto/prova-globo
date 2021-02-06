@@ -6,24 +6,21 @@
       :search="search"
       :custom-filter="filter"
       item-key="name"
-      show-select
       class="elevation-1 text-subtitle-2"
       hide-default-footer
     >
-      <template v-slot:top>
-        <v-text-field v-model="search" label="Search (UPPER CASE ONLY)" class="mx-4"></v-text-field>
-      </template>
     </v-data-table>
   </v-main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Table',
 
   data() {
     return {
-      search: '',
       headers: [
         {
           text: 'USUÁRIO',
@@ -93,6 +90,9 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    ...mapGetters({ search: 'filterUsersTableParam' })
   },
   methods: {
     filter(value, search) {
