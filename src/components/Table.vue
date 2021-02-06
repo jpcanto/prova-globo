@@ -3,7 +3,7 @@
     <v-data-table
       v-model="selected"
       :headers="headers"
-      :items="desserts"
+      :items="users"
       :search="search"
       :custom-filter="filter"
       show-select
@@ -11,6 +11,19 @@
       class="elevation-1 text-subtitle-2"
       hide-default-footer
     >
+      <template v-slot:[`item.actions`]="{ item }">
+        <template>
+          <v-icon small class="ma-2" v-if="item.show" @click="editUser(item)">
+            mdi-pencil
+          </v-icon>
+          <v-icon small class="ma-2" v-if="item.show">
+            mdi-delete
+          </v-icon>
+        </template>
+        <v-icon small class="ma-2" :class="{ disable: item.show }" @click="handleButtons(item)">
+          mdi-dots-horizontal
+        </v-icon>
+      </template>
     </v-data-table>
   </v-main>
 </template>
@@ -37,7 +50,7 @@ export default {
         { text: 'STATUS', sortable: false, value: 'status' },
         { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
       ],
-      desserts: [
+      users: [
         {
           name: 'ANPINA',
           email: 'antonio.pina@tvglobo.com.br',
@@ -45,7 +58,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '01',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         },
         {
           name: 'CCHANG',
@@ -54,7 +67,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '01',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         },
         {
           name: 'TMARCAL',
@@ -63,7 +76,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '01',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         },
         {
           name: 'ECGIANN',
@@ -72,7 +85,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '01',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         },
         {
           name: 'YFERNAND',
@@ -81,7 +94,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '02',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         },
         {
           name: 'PLACERDA',
@@ -90,7 +103,7 @@ export default {
           alterationDate: '30/05/2019',
           rules: '02',
           status: 'ATIVO',
-          actions: '...'
+          show: false
         }
       ]
     };
@@ -101,6 +114,10 @@ export default {
   methods: {
     filter(value, search) {
       return value != null && search != null && value.indexOf(search) !== -1;
+    },
+    handleButtons(currentUser) {
+      const User = this.users.find(user => user === currentUser);
+      User.show = !User.show;
     }
   }
 };
@@ -111,5 +128,8 @@ export default {
   @media only screen and (min-width: 750px) {
     min-width: 90vw !important;
   }
+}
+.disable {
+  color: #e0e0e0 !important;
 }
 </style>
