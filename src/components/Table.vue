@@ -6,6 +6,9 @@
       :items="users"
       :search="search"
       :custom-filter="filter"
+      :page.sync="page"
+      :items-per-page="itemsPerPage"
+      @page-count="pageCount = $event"
       show-select
       item-key="name"
       class="elevation-1 text-subtitle-2"
@@ -25,6 +28,13 @@
         </v-icon>
       </template>
     </v-data-table>
+    <v-pagination
+      v-model="page"
+      :length="pageCount"
+      class="ma-8"
+      color="pink accent-4"
+      next-aria-label="Próximo"
+    ></v-pagination>
   </v-main>
 </template>
 
@@ -37,6 +47,9 @@ export default {
   data() {
     return {
       selected: [],
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 4,
       headers: [
         {
           text: 'USUÁRIO',
@@ -109,7 +122,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({ search: 'filterUsersTableParam' })
+    ...mapGetters({
+      search: 'filterUsersTableParam'
+    })
   },
   methods: {
     filter(value, search) {
