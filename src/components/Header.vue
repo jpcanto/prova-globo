@@ -2,7 +2,7 @@
   <v-main>
     <v-app-bar color="grey lighten-2" dark prominent flat>
       <v-container class="ma-0 align-center" fill-height fluid>
-        <template>
+        <form @submit.prevent="setFilters">
           <v-text-field
             v-model="search"
             light
@@ -12,7 +12,7 @@
             @click:append="setFilters"
           >
           </v-text-field>
-        </template>
+        </form>
 
         <v-spacer></v-spacer>
 
@@ -26,13 +26,13 @@
         </v-btn>
 
         <v-btn icon>
-          <v-icon color="grey darken-1">mdi-home</v-icon>
+          <v-icon color="grey darken-1" class="btn">mdi-home</v-icon>
         </v-btn>
         <v-btn icon>
-          <v-icon color="grey darken-1">mdi-cog</v-icon>
+          <v-icon color="grey darken-1" class="btn">mdi-cog</v-icon>
         </v-btn>
         <v-btn icon>
-          <v-icon color="grey darken-1">mdi-power</v-icon>
+          <v-icon color="grey darken-1" class="btn">mdi-power</v-icon>
         </v-btn>
       </v-container>
     </v-app-bar>
@@ -84,6 +84,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+form {
+  width: 25vw;
+}
+
 .v-text-field {
   max-width: 50vw;
 }
@@ -92,4 +96,5 @@ export default {
   height: 45px !important;
   width: fit-content;
 }
+
 </style>
