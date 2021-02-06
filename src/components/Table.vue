@@ -3,11 +3,16 @@
     <v-data-table
       :headers="headers"
       :items="desserts"
+      :search="search"
+      :custom-filter="filter"
       item-key="name"
       show-select
       class="elevation-1 text-subtitle-2"
       hide-default-footer
     >
+      <template v-slot:top>
+        <v-text-field v-model="search" label="Search (UPPER CASE ONLY)" class="mx-4"></v-text-field>
+      </template>
     </v-data-table>
   </v-main>
 </template>
@@ -18,6 +23,7 @@ export default {
 
   data() {
     return {
+      search: '',
       headers: [
         {
           text: 'USUÁRIO',
@@ -87,6 +93,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    filter(value, search) {
+      return value != null && search != null && value.indexOf(search) !== -1;
+    }
   }
 };
 </script>
