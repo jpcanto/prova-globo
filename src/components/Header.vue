@@ -17,7 +17,7 @@
         <v-spacer></v-spacer>
 
         <v-btn light @click.stop="drawer = !drawer" class="btn mr-4">
-          <v-icon color="grey darken-1">mdi-filter</v-icon>
+          <v-icon color="grey darken-1">mdi-abacus</v-icon>
         </v-btn>
 
         <v-btn elevation="1" tile color="pink accent-4" class="btn user-btn text-body-2 pl-0 mr-6">
