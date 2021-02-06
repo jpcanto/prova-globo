@@ -1,26 +1,38 @@
 <template>
   <v-main>
     <v-app-bar color="grey lighten-2" dark prominent flat>
-      <v-container class="ma-0" fill-height fluid>
+      <v-container class="ma-0 align-center" fill-height fluid>
         <template>
           <v-text-field
             v-model="search"
             light
-            full-width
             label="Pesquisar..."
             class="mx-4"
-          ></v-text-field>
-          <v-icon color="grey darken-2" @click="setFilters">mdi-magnify</v-icon>
+            append-icon="mdi-magnify"
+            @click:append="setFilters"
+          >
+          </v-text-field>
         </template>
 
         <v-spacer></v-spacer>
 
-        <v-btn icon @click.stop="drawer = !drawer">
-          <v-icon>mdi-filter</v-icon>
+        <v-btn light @click.stop="drawer = !drawer" class="btn mr-4">
+          <v-icon color="grey darken-1">mdi-filter</v-icon>
+        </v-btn>
+
+        <v-btn elevation="1" tile color="pink accent-4" class="btn user-btn text-body-2 pl-0 mr-6">
+          <v-icon class="ma-2">mdi-account </v-icon>
+          INCLUIR USUÁRIO
         </v-btn>
 
         <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
+          <v-icon color="grey darken-1">mdi-home</v-icon>
+        </v-btn>
+        <v-btn icon>
+          <v-icon color="grey darken-1">mdi-cog</v-icon>
+        </v-btn>
+        <v-btn icon>
+          <v-icon color="grey darken-1">mdi-power</v-icon>
         </v-btn>
       </v-container>
     </v-app-bar>
@@ -44,7 +56,7 @@
             <v-list-item-title>ATIVOS E INATIVOS</v-list-item-title>
           </v-list-item>
 
-          <v-btn x-large outlined color="pink accent-2">APLICAR</v-btn>
+          <v-btn x-large outlined color="pink accent-4">APLICAR</v-btn>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -70,3 +82,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.v-text-field {
+  max-width: 50vw;
+}
+.btn {
+  border-radius: 5px;
+  height: 45px !important;
+  width: fit-content;
+}
+</style>
