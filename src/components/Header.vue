@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-app-bar color="grey lighten-2" dark prominent flat>
+    <v-app-bar color="grey lighten-3" dark prominent flat>
       <v-container class="ma-0 align-center" fill-height fluid>
         <form @submit.prevent="setFilters">
           <v-text-field
