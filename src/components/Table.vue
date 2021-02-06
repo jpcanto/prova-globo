@@ -1,10 +1,12 @@
 <template>
   <v-main class="auto pa-8">
     <v-data-table
+      v-model="selected"
       :headers="headers"
       :items="desserts"
       :search="search"
       :custom-filter="filter"
+      show-select
       item-key="name"
       class="elevation-1 text-subtitle-2"
       hide-default-footer
@@ -21,17 +23,19 @@ export default {
 
   data() {
     return {
+      selected: [],
       headers: [
         {
           text: 'USUÁRIO',
+          sortable: false,
           value: 'name'
         },
-        { text: 'EMAIL', value: 'email' },
-        { text: 'DATA DE INCLUSÃO', value: 'inclusionDate' },
-        { text: 'DATA DE ALTERAÇÃO', value: 'alterationDate' },
-        { text: 'REGRAS', value: 'rules' },
-        { text: 'STATUS', value: 'status' },
-        { text: 'AÇÕES', value: 'actions' }
+        { text: 'EMAIL', sortable: false, value: 'email' },
+        { text: 'DATA DE INCLUSÃO', sortable: false, value: 'inclusionDate' },
+        { text: 'DATA DE ALTERAÇÃO', sortable: false, value: 'alterationDate' },
+        { text: 'REGRAS', sortable: false, value: 'rules' },
+        { text: 'STATUS', sortable: false, value: 'status' },
+        { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
       ],
       desserts: [
         {
