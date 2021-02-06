@@ -115,9 +115,17 @@ export default {
     filter(value, search) {
       return value != null && search != null && value.indexOf(search) !== -1;
     },
-    handleButtons(currentUser) {
-      const User = this.users.find(user => user === currentUser);
-      User.show = !User.show;
+    handleButtons(currentRow) {
+      const rowWasDisabled = this.users.find(row => row.show === true);
+      const rowWasClicked = this.users.find(row => row === currentRow);
+
+      if (rowWasDisabled && rowWasDisabled === currentRow) {
+        rowWasDisabled.show = false;
+        return;
+      }
+      if (rowWasDisabled) rowWasDisabled.show = false;
+
+      rowWasClicked.show = !rowWasClicked.show;
     }
   }
 };
