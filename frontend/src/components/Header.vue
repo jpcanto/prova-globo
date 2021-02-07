@@ -43,30 +43,46 @@
         <v-toolbar-title>FILTROS</v-toolbar-title>
         <v-btn small absolute right color="elevation-1" @click.stop="drawer = !drawer">X</v-btn>
       </v-toolbar>
+      <div class="grey--text font-italic ma-10">
+        Utilize os filtros abaixo para refinar os resultados da tabela, clique no botão APLICAR para
+        salvar as alterações.
+      </div>
       <v-container class="mt-7">
         <v-select
           v-model="inclusion"
           :items="inclusionItems"
           menu-props="auto"
           label="TODAS AS DATAS DE INCLUSÃO"
-          prepend-icon="mdi-calendar"
+          prepend-inner-icon="mdi-calendar"
           color="pink accent-4"
+          background-color="grey lighten-3"
+          height="60"
+          filled
+          class="pl-4 pr-4"
         ></v-select>
         <v-select
           v-model="alteration"
           :items="alterationItems"
           menu-props="auto"
           label="TODAS AS DATAS DE ALTERAÇÃO"
-          prepend-icon="mdi-calendar"
+          prepend-inner-icon="mdi-calendar"
           color="pink accent-4"
+          background-color="grey lighten-3"
+          height="60"
+          filled
+          class="pl-4 pr-4"
         ></v-select>
         <v-select
           v-model="actives"
           :items="activeItems"
           menu-props="auto"
           label="ATIVOS E INATIVOS"
-          prepend-icon="mdi-dots-horizontal"
+          prepend-inner-icon="mdi-dots-horizontal"
           color="pink accent-4"
+          background-color="grey lighten-3"
+          height="60"
+          filled
+          class="pl-4 pr-4"
         ></v-select>
       </v-container>
       <v-btn x-large outlined width="-webkit-fill-available" color="pink accent-4" class="ma-8"
