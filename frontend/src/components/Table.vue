@@ -35,7 +35,7 @@
       color="pink accent-4"
       next-aria-label="Próximo"
     ></v-pagination>
-    <Dialog v-if="deleteDialog" :user="clickedRow" />
+    <Dialog v-if="deleteDialog" :user="clickedRow" @update:isVisible="handleVisible" />
   </v-main>
 </template>
 
@@ -98,6 +98,9 @@ export default {
     },
     handleDeleteUser() {
       this.deleteDialog = true;
+    },
+    handleVisible(value) {
+      this.deleteDialog = value;
     }
   },
   async mounted() {
