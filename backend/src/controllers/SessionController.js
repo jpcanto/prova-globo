@@ -22,6 +22,34 @@ class SessionController {
     return res.json(users);
   }
 
+  async update(req, res) {
+    const { user_id } = req.params;
+    const {
+      email,
+      name,
+      inclusionDate,
+      alterationDate,
+      rules,
+      status,
+      show,
+    } = req.body;
+
+    const users = await User.updateOne(
+      { _id: user_id },
+      {
+        email,
+        name,
+        inclusionDate,
+        alterationDate,
+        rules,
+        status,
+        show,
+      }
+    );
+
+    return res.send();
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string().required().email(),
