@@ -18,6 +18,9 @@ Eu, como usuário, gostaria de ter uma aplicação onde pudesse gerenciar usuár
 - A aplicação precisa conter testes (e2e e/ou unit)
 ## Para executar a aplicação eu preciso:
 
+- Para executar os passos a seguir, navegar antes para as pastas (backend, frontend).
+- Os passos devem ser executados nas 2 pastas.
+- Antes de executar o projeto frontend, executar o projeto backend.
 ### Instalar as dependêncisa do projeto:
 
 `yarn` ou `npm install`
