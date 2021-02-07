@@ -53,6 +53,17 @@ class SessionController {
     return res.send();
   }
 
+  async destroy(req, res) {
+    const { user_id } = req.body;
+
+    try {
+      await User.findByIdAndDelete({ _id: user_id });
+      return res.send();
+    } catch (error) {
+      return res.status(400).json({ message: "Usuário inválido" });
+    }
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       email: Yup.string().required().email(),
