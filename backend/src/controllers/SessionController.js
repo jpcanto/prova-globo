@@ -54,7 +54,7 @@ class SessionController {
   }
 
   async destroy(req, res) {
-    const { user_id } = req.body;
+    const { user_id } = req.params;
 
     try {
       await User.findByIdAndDelete({ _id: user_id });
