@@ -1,22 +1,13 @@
 <template>
   <v-app>
     <v-main class="grey lighten-2">
-      <Header />
-      <Table />
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Table from './components/Table';
-import Header from './components/Header';
-
 export default {
-  name: 'App',
-
-  components: {
-    Header,
-    Table
-  }
+  name: 'App'
 };
 </script>

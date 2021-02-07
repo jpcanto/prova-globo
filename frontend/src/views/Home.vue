@@ -1,11 +1,19 @@
 <template>
   <div class="home">
-    oi
+    <Header />
+    <Table />
   </div>
 </template>
 
 <script>
+import Table from '../components/Table';
+import Header from '../components/Header';
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Header,
+    Table
+  }
 };
 </script>
