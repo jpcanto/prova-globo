@@ -6,6 +6,11 @@ import routes from "./routes";
 class App {
   constructor() {
     this.server = express();
+    this.corsOptions = {
+      origin: "http://localhost:8080",
+      optionsSuccessStatus: 200,
+      methods: "GET, PUT, DELETE, POST",
+    };
 
     mongoose.connect(
       "mongodb+srv://admin-master:admin-master@prova-globo.32ly2.mongodb.net/prova-globo?retryWrites=true&w=majority",
@@ -21,6 +26,8 @@ class App {
   }
 
   middlewares() {
+    this.server.use(cors(this.corsOptions));
+
     this.server.use(express.json());
   }
 
