@@ -37,35 +37,55 @@
       </v-container>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" fixed right temporary width="30vw">
-      <v-toolbar class="elevation-1">
+    <v-navigation-drawer v-model="drawer" fixed right temporary color="grey lighten-3" width="30vw">
+      <v-toolbar color="grey lighten-5" height="90" class="elevation-1">
+        <v-icon color="grey darken-1" class="btn mr-2">mdi-abacus</v-icon>
         <v-toolbar-title>FILTROS</v-toolbar-title>
-        <v-btn small color="elevation-1" @click.stop="drawer = !drawer">X</v-btn>
+        <v-btn small absolute right color="elevation-1" @click.stop="drawer = !drawer">X</v-btn>
       </v-toolbar>
-      <v-list>
-        <v-list-item-group v-model="group" active-class="pink accent-2 text--accent-2">
-          <v-list-item>
-            <v-list-item-title>TODAS AS DATAS DE INCLUSÃO</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>TODAS AS DATAS DE ALTERAÇÃO</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-title>ATIVOS E INATIVOS</v-list-item-title>
-          </v-list-item>
-
-          <v-btn x-large outlined color="pink accent-4">APLICAR</v-btn>
-        </v-list-item-group>
-      </v-list>
+      <v-container class="mt-7">
+        <v-select
+          v-model="inclusion"
+          :items="inclusionItems"
+          menu-props="auto"
+          label="TODAS AS DATAS DE INCLUSÃO"
+          prepend-icon="mdi-calendar"
+          color="pink accent-4"
+        ></v-select>
+        <v-select
+          v-model="alteration"
+          :items="alterationItems"
+          menu-props="auto"
+          label="TODAS AS DATAS DE ALTERAÇÃO"
+          prepend-icon="mdi-calendar"
+          color="pink accent-4"
+        ></v-select>
+        <v-select
+          v-model="actives"
+          :items="activeItems"
+          menu-props="auto"
+          label="ATIVOS E INATIVOS"
+          prepend-icon="mdi-dots-horizontal"
+          color="pink accent-4"
+        ></v-select>
+      </v-container>
+      <v-btn x-large outlined width="-webkit-fill-available" color="pink accent-4" class="ma-8"
+        >APLICAR</v-btn
+      >
     </v-navigation-drawer>
   </v-main>
 </template>
 
 <script>
+import { getUsers } from '../services/users';
 export default {
   data: () => ({
+    inclusion: '',
+    inclusionItems: [],
+    alteration: '',
+    alterationItems: [],
+    actives: '',
+    activeItems: [],
     search: '',
     drawer: false,
     group: null
@@ -79,6 +99,12 @@ export default {
     group() {
       this.drawer = false;
     }
+  },
+  async mounted() {
+    const users = await getUsers();
+    this.inclusionItems = [...new Set(users.map(u => u.inclusionDate))];
+    this.alterationItems = [...new Set(users.map(u => u.alterationDate))];
+    this.activeItems = [...new Set(users.map(u => u.status))];
   }
 };
 </script>
@@ -96,5 +122,4 @@ form {
   height: 45px !important;
   width: fit-content;
 }
-
 </style>
