@@ -40,6 +40,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { getUsers } from '../services/users';
 
 export default {
   name: 'Table',
@@ -63,62 +64,7 @@ export default {
         { text: 'STATUS', sortable: false, value: 'status' },
         { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
       ],
-      users: [
-        {
-          name: 'ANPINA',
-          email: 'antonio.pina@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '01',
-          status: 'ATIVO',
-          show: false
-        },
-        {
-          name: 'CCHANG',
-          email: 'ciro.chang@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '01',
-          status: 'ATIVO',
-          show: false
-        },
-        {
-          name: 'TMARCAL',
-          email: 'thiago.marcal@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '01',
-          status: 'ATIVO',
-          show: false
-        },
-        {
-          name: 'ECGIANN',
-          email: 'ecgianotto@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '01',
-          status: 'ATIVO',
-          show: false
-        },
-        {
-          name: 'YFERNAND',
-          email: 'yuri.vasquez@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '02',
-          status: 'ATIVO',
-          show: false
-        },
-        {
-          name: 'PLACERDA',
-          email: 'pedro.soares.lacerda@tvglobo.com.br',
-          inclusionDate: '28/05/2019',
-          alterationDate: '30/05/2019',
-          rules: '02',
-          status: 'ATIVO',
-          show: false
-        }
-      ]
+      users: [{}]
     };
   },
   computed: {
@@ -142,6 +88,9 @@ export default {
 
       rowWasClicked.show = !rowWasClicked.show;
     }
+  },
+  async mounted() {
+    this.users = await getUsers();
   }
 };
 </script>
