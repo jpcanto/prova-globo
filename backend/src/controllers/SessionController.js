@@ -33,6 +33,9 @@ class SessionController {
       status,
       show,
     } = req.body;
+    const user = await User.findOne({ _id: user_id });
+
+    if (!user) return res.status(400).json({ message: "Usuário inválido" });
 
     const users = await User.updateOne(
       { _id: user_id },
