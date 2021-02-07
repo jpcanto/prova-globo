@@ -3,12 +3,11 @@
     <v-dialog v-model="dialog" max-width="290">
       <v-card>
         <v-card-title class="headline">
-          Use Google's location service?
+          Deseja prosseguir com a deleção do usuário "{{ user.name }}" ?
         </v-card-title>
 
         <v-card-text>
-          Let Google help apps determine location. This means sending anonymous location data to
-          Google, even when no apps are running.
+          Ao prosseguir, todas as informações sobre esse usuário serão perdidas.
         </v-card-text>
 
         <v-card-actions>
