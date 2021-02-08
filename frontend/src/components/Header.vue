@@ -2,14 +2,14 @@
   <v-main>
     <v-app-bar color="grey lighten-3" dark flat height="100px">
       <v-container class="ma-0 align-center" fill-height fluid>
-        <form @submit.prevent="setFilters">
+        <form @submit.prevent="setFilters(search)">
           <v-text-field
             v-model="search"
             light
             label="Pesquisar..."
             class="mx-4"
             append-icon="mdi-magnify"
-            @click:append="setFilters"
+            @click:append="setFilters(search)"
           >
           </v-text-field>
         </form>
@@ -91,9 +91,16 @@
           class="pl-4 pr-4"
         ></v-select>
       </v-container>
-      <v-btn x-large outlined width="-webkit-fill-available" color="pink accent-4" class="ma-8"
-        >APLICAR</v-btn
+      <v-btn
+        x-large
+        outlined
+        width="-webkit-fill-available"
+        color="pink accent-4"
+        class="ma-8"
+        @click="setFilters(inclusion || alteration || actives)"
       >
+        APLICAR
+      </v-btn>
     </v-navigation-drawer>
   </v-main>
 </template>
@@ -135,8 +142,10 @@ export default {
     }
   },
   methods: {
-    setFilters() {
-      this.$store.dispatch('setFilterUsersTableParam', this.search);
+    setFilters(filter) {
+      this.$store.dispatch('setFilterUsersTableParam', filter);
+
+      if (this.drawer) this.drawer = false;
     },
     handleUser() {
       this.$store.dispatch('setCurrentUser', {
