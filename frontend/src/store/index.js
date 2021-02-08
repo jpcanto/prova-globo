@@ -24,22 +24,10 @@ export default new Vuex.Store({
   },
   mutations: {
     setFilterUsersTableParam: (state, payload) => (state.filterUsersTableParam = payload),
-    setCrudDialog: state => (state.crudDialog = !state.crudDialog),
+    toggleCrudDialog: state => (state.crudDialog = !state.crudDialog),
     setDialogType: (state, payload) => (state.dialogType = payload),
-    requestUsers: async state => (state.users = await getUsers()),
-    setCurrentUser: (state, payload) => {
-      const showedRow = state.users.find(user => user.show === true);
-      const user = state.users.find(user => user === payload);
-
-      if (showedRow && showedRow === payload) {
-        showedRow.show = false;
-        return;
-      }
-      if (showedRow) showedRow.show = false;
-
-      if (user) user.show = !user.show;
-      state.currentUser = payload;
-    },
+    setUsers: (state, payload) => (state.users = payload),
+    setCurrentUser: (state, payload) => (state.currentUser = payload),
     setSnackbar: (state, payload) => (state.snackBarStatus = payload)
   },
   getters: {
@@ -56,10 +44,26 @@ export default new Vuex.Store({
   },
   actions: {
     setFilterUsersTableParam: ({ commit }, payload) => commit('setFilterUsersTableParam', payload),
-    setCrudDialog: ({ commit }) => commit('setCrudDialog'),
     setDialogType: ({ commit }, payload) => commit('setDialogType', payload),
-    setCurrentUser: ({ commit }, payload) => commit('setCurrentUser', payload),
-    requestUsers: ({ commit }) => commit('requestUsers'),
-    setSnackbar: ({ commit }, payload) => commit('setSnackbar', payload)
+    requestUsers: async ({ commit }) => {
+      const request = await getUsers();
+      commit('setUsers', request);
+    },
+    setSnackbar: ({ commit }, payload) => commit('setSnackbar', payload),
+    handleRow: ({ commit, state }, payload) => {
+      const showedRow = state.users.find(user => user.show === true);
+      const user = state.users.find(user => user === payload);
+
+      if (showedRow && showedRow === payload) {
+        showedRow.show = false;
+        return;
+      }
+
+      if (showedRow) showedRow.show = false;
+
+      if (user) user.show = !user.show;
+
+      commit('setCurrentUser', payload);
+    }
   }
 });

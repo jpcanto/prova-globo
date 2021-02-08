@@ -1,6 +1,7 @@
 <template>
   <v-main class="auto">
     <v-data-table
+      v-if="users.length"
       v-model="selected"
       :headers="headers"
       :items="users"
@@ -46,23 +47,11 @@ export default {
 
   data() {
     return {
+      activeFilters: { inclusionDate: ['08/02/2021'], alterationDate: [], status: [] },
       selected: [],
       page: 1,
       pageCount: 0,
-      itemsPerPage: 4,
-      headers: [
-        {
-          text: 'USUÁRIO',
-          sortable: false,
-          value: 'name'
-        },
-        { text: 'EMAIL', sortable: false, value: 'email' },
-        { text: 'DATA DE INCLUSÃO', sortable: false, value: 'inclusionDate' },
-        { text: 'DATA DE ALTERAÇÃO', sortable: false, value: 'alterationDate' },
-        { text: 'REGRAS', sortable: false, value: 'rules' },
-        { text: 'STATUS', sortable: false, value: 'status' },
-        { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
-      ]
+      itemsPerPage: 4
     };
   },
   computed: {
@@ -70,18 +59,55 @@ export default {
       search: 'filterUsersTableParam'
     }),
     ...mapState({
-      users: 'users'
-    })
+      users: state => state.users
+    }),
+    headers() {
+      return [
+        {
+          text: 'USUÁRIO',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'EMAIL', sortable: false, value: 'email' },
+        {
+          text: 'DATA DE INCLUSÃO',
+          sortable: false,
+          value: 'inclusionDate'
+          // filter: value =>
+          //   this.activeFilters.inclusionDate
+          //     ? this.activeFilters.inclusionDate.includes(value)
+          //     : true
+        },
+        {
+          text: 'DATA DE ALTERAÇÃO',
+          sortable: false,
+          value: 'alterationDate'
+          // filter: value =>
+          //   this.activeFilters.alterationDate
+          //     ? this.activeFilters.alterationDate.includes(value)
+          //     : true
+        },
+        { text: 'REGRAS', sortable: false, value: 'rules' },
+        {
+          text: 'STATUS',
+          sortable: false,
+          value: 'status'
+          // filter: value =>
+          //   this.activeFilters.status ? this.activeFilters.status.includes(value) : true
+        },
+        { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
+      ];
+    }
   },
   methods: {
     filter(value, search) {
       return value != null && search != null && value.indexOf(search) !== -1;
     },
     handleButtons(currentRow) {
-      this.$store.dispatch('setCurrentUser', currentRow);
+      this.$store.dispatch('handleRow', currentRow);
     },
     handleUser(type) {
-      this.$store.dispatch('setCrudDialog');
+      this.$store.commit('toggleCrudDialog');
       this.$store.dispatch('setDialogType', type);
     }
   }

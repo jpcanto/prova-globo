@@ -187,7 +187,7 @@ export default {
       }
     },
     handleVisible() {
-      this.$store.dispatch('setCrudDialog');
+      this.$store.commit('toggleCrudDialog');
     }
   }
 };

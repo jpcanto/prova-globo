@@ -122,7 +122,7 @@ export default {
   }),
   computed: {
     ...mapState({
-      users: 'users'
+      users: state => state.users
     }),
     ...mapGetters({
       newInclusionItems: 'getInclusionItems',
@@ -148,7 +148,7 @@ export default {
       if (this.drawer) this.drawer = false;
     },
     handleUser() {
-      this.$store.dispatch('setCurrentUser', {
+      this.$store.dispatch('handleRow', {
         _id: 'default',
         email: 'default',
         name: 'default',
@@ -158,11 +158,11 @@ export default {
         status: 'default',
         show: false
       });
-      this.$store.dispatch('setCrudDialog');
+      this.$store.commit('toggleCrudDialog');
       this.$store.dispatch('setDialogType', 'create');
     },
     handleApiInfo() {
-      this.$store.dispatch('setCrudDialog');
+      this.$store.commit('toggleCrudDialog');
       this.$store.dispatch('setDialogType', 'api-info');
     }
   }
