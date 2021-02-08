@@ -95,29 +95,29 @@
         >APLICAR</v-btn
       >
     </v-navigation-drawer>
-    <Dialog :user="clickedRow" type="create" :key="openDialog" :isVisible="openDialog" />
   </v-main>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { getUsers } from '../services/users';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
+  name: 'Header',
   data: () => ({
-    clickedRow: false,
     inclusion: '',
-    inclusionItems: [],
     alteration: '',
-    alterationItems: [],
     actives: '',
-    activeItems: [],
     search: '',
     drawer: false
   }),
   computed: {
+    ...mapState({
+      users: 'users'
+    }),
     ...mapGetters({
-      openDialog: 'showCrudDiaglog'
+      inclusionItems: 'getInclusionItems',
+      alterationItems: 'getAlterationItems',
+      activeItems: 'getActiveItems'
     })
   },
   methods: {
@@ -125,14 +125,19 @@ export default {
       this.$store.dispatch('setFilterUsersTableParam', this.search);
     },
     handleUser() {
+      this.$store.dispatch('setCurrentUser', {
+        _id: 'default',
+        email: 'default',
+        name: 'default',
+        inclusionDate: 'default',
+        alterationDate: 'default',
+        rules: 'default',
+        status: 'default',
+        show: false
+      });
       this.$store.dispatch('setCrudDialog');
+      this.$store.dispatch('setDialogType', 'create');
     }
-  },
-  async mounted() {
-    const users = await getUsers();
-    this.inclusionItems = [...new Set(users.map(u => u.inclusionDate))];
-    this.alterationItems = [...new Set(users.map(u => u.alterationDate))];
-    this.activeItems = [...new Set(users.map(u => u.status))];
   }
 };
 </script>

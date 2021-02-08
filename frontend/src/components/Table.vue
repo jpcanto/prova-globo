@@ -35,25 +35,14 @@
       color="pink accent-4"
       next-aria-label="Próximo"
     ></v-pagination>
-    <Dialog
-      :user="clickedRow"
-      :type="dialogType"
-      :key="openDialog"
-      :isVisible="openDialog"
-    />
   </v-main>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { getUsers } from '../services/users';
-import Dialog from './Dialog';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'Table',
-  components: {
-    Dialog
-  },
 
   data() {
     return {
@@ -61,7 +50,6 @@ export default {
       page: 1,
       pageCount: 0,
       itemsPerPage: 4,
-      dialogType: '',
       headers: [
         {
           text: 'USUÁRIO',
@@ -74,52 +62,28 @@ export default {
         { text: 'REGRAS', sortable: false, value: 'rules' },
         { text: 'STATUS', sortable: false, value: 'status' },
         { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
-      ],
-      users: [{}]
+      ]
     };
   },
   computed: {
     ...mapGetters({
-      search: 'filterUsersTableParam',
-      openDialog: 'showCrudDiaglog'
+      search: 'filterUsersTableParam'
     }),
-    clickedRow() {
-      return this.users.find(row => row.name)
-        ? this.users.find(row => row.show === true)
-        : {
-            _id: 'default',
-            email: 'default',
-            name: 'default',
-            inclusionDate: 'default',
-            alterationDate: 'default',
-            rules: 'default',
-            status: 'default',
-            show: false
-          };
-    }
+    ...mapState({
+      users: 'users'
+    })
   },
   methods: {
     filter(value, search) {
       return value != null && search != null && value.indexOf(search) !== -1;
     },
     handleButtons(currentRow) {
-      const rowWasClicked = this.users.find(row => row === currentRow);
-
-      if (this.clickedRow && this.clickedRow === currentRow) {
-        this.clickedRow.show = false;
-        return;
-      }
-      if (this.clickedRow) this.clickedRow.show = false;
-
-      rowWasClicked.show = !rowWasClicked.show;
+      this.$store.dispatch('setCurrentUser', currentRow);
     },
     handleUser(type) {
       this.$store.dispatch('setCrudDialog');
-      this.dialogType = type;
+      this.$store.dispatch('setDialogType', type);
     }
-  },
-  async mounted() {
-    this.users = await getUsers();
   }
 };
 </script>
