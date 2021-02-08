@@ -143,7 +143,7 @@ export default {
   },
   methods: {
     setFilters(filter) {
-      this.$store.dispatch('setFilterUsersTableParam', filter);
+      this.$store.commit('setFilterUsersTableParam', filter);
 
       if (this.drawer) this.drawer = false;
     },
@@ -159,11 +159,11 @@ export default {
         show: false
       });
       this.$store.commit('toggleCrudDialog');
-      this.$store.dispatch('setDialogType', 'create');
+      this.$store.commit('setDialogType', 'create');
     },
     handleApiInfo() {
       this.$store.commit('toggleCrudDialog');
-      this.$store.dispatch('setDialogType', 'api-info');
+      this.$store.commit('setDialogType', 'api-info');
     }
   }
 };

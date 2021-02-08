@@ -108,7 +108,7 @@ export default {
     },
     handleUser(type) {
       this.$store.commit('toggleCrudDialog');
-      this.$store.dispatch('setDialogType', type);
+      this.$store.commit('setDialogType', type);
     }
   }
 };

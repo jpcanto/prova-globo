@@ -22,6 +22,7 @@ export default new Vuex.Store({
     },
     snackBarStatus: {}
   },
+
   mutations: {
     setFilterUsersTableParam: (state, payload) => (state.filterUsersTableParam = payload),
     toggleCrudDialog: state => (state.crudDialog = !state.crudDialog),
@@ -30,6 +31,7 @@ export default new Vuex.Store({
     setCurrentUser: (state, payload) => (state.currentUser = payload),
     setSnackbar: (state, payload) => (state.snackBarStatus = payload)
   },
+
   getters: {
     filterUsersTableParam: state => state.filterUsersTableParam,
     showCrudDiaglog: state => state.crudDialog,
@@ -42,9 +44,8 @@ export default new Vuex.Store({
     getAlterationItems: state => [...new Set(state.users.map(u => u.alterationDate))],
     getActiveItems: state => [...new Set(state.users.map(u => u.status))]
   },
+
   actions: {
-    setFilterUsersTableParam: ({ commit }, payload) => commit('setFilterUsersTableParam', payload),
-    setDialogType: ({ commit }, payload) => commit('setDialogType', payload),
     requestUsers: async ({ commit }) => {
       const request = await getUsers();
       commit('setUsers', request);
