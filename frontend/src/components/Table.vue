@@ -85,7 +85,7 @@ export default {
       search: 'filterUsersTableParam'
     }),
     clickedRow() {
-      return this.users.name
+      return this.users.find(row => row.name)
         ? this.users.find(row => row.show === true)
         : {
             _id: 'default',
