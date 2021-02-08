@@ -88,7 +88,6 @@ export default {
     Snackbar
   },
   data() {
-    console.log(this.isVisible)
     return {
       name: this.user.name,
       email: this.user.email,
