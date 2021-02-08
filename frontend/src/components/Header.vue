@@ -104,6 +104,9 @@ import { mapGetters, mapState } from 'vuex';
 export default {
   name: 'Header',
   data: () => ({
+    inclusionItems: [],
+    alterationItems: [],
+    activeItems: [],
     inclusion: '',
     alteration: '',
     actives: '',
@@ -115,10 +118,21 @@ export default {
       users: 'users'
     }),
     ...mapGetters({
-      inclusionItems: 'getInclusionItems',
-      alterationItems: 'getAlterationItems',
-      activeItems: 'getActiveItems'
+      newInclusionItems: 'getInclusionItems',
+      newAlterationItems: 'getAlterationItems',
+      newActiveItems: 'getActiveItems'
     })
+  },
+  watch: {
+    newInclusionItems: function(value) {
+      this.inclusionItems = value;
+    },
+    newAlterationItems: function(value) {
+      this.alterationItems = value;
+    },
+    newActiveItems: function(value) {
+      this.activeItems = value;
+    }
   },
   methods: {
     setFilters() {
