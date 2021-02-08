@@ -38,9 +38,8 @@
     <Dialog
       :user="clickedRow"
       :type="dialogType"
-      :isVisible="openDialog"
       :key="openDialog"
-      @update:isVisible="handleVisible"
+      :isVisible="openDialog"
     />
   </v-main>
 </template>
@@ -62,7 +61,6 @@ export default {
       page: 1,
       pageCount: 0,
       itemsPerPage: 4,
-      openDialog: false,
       dialogType: '',
       headers: [
         {
@@ -82,7 +80,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      search: 'filterUsersTableParam'
+      search: 'filterUsersTableParam',
+      openDialog: 'showCrudDiaglog'
     }),
     clickedRow() {
       return this.users.find(row => row.name)
@@ -115,11 +114,8 @@ export default {
       rowWasClicked.show = !rowWasClicked.show;
     },
     handleUser(type) {
-      this.openDialog = true;
+      this.$store.dispatch('setCrudDialog');
       this.dialogType = type;
-    },
-    handleVisible(value) {
-      this.openDialog = value;
     }
   },
   async mounted() {

@@ -14,6 +14,12 @@ export const deleteUser = id => {
 
 export const editUser = (id, reqBody) => {
   const url = `/sessions/${id}`;
-  
+
   return api.put(url, reqBody).then(res => res.data);
+};
+
+export const createUser = (reqBody) => {
+  const url = `/sessions/`;
+
+  return api.post(url, reqBody).then(res => res.data);
 };

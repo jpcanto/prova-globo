@@ -168,7 +168,7 @@ export default {
       }
     },
     handleVisible() {
-      this.$emit('update:isVisible', !this.isVisible);
+      this.$store.dispatch('setCrudDialog');
     }
   }
 };

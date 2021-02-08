@@ -20,7 +20,13 @@
           <v-icon color="grey darken-1">mdi-abacus</v-icon>
         </v-btn>
 
-        <v-btn elevation="1" tile color="pink accent-4" class="btn user-btn text-body-2 pl-0 mr-6">
+        <v-btn
+          elevation="1"
+          tile
+          color="pink accent-4"
+          class="btn user-btn text-body-2 pl-0 mr-6"
+          @click="handleUser"
+        >
           <v-icon class="ma-2">mdi-account </v-icon>
           INCLUIR USUÁRIO
         </v-btn>
@@ -89,13 +95,17 @@
         >APLICAR</v-btn
       >
     </v-navigation-drawer>
+    <Dialog :user="clickedRow" type="create" :key="openDialog" :isVisible="openDialog" />
   </v-main>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { getUsers } from '../services/users';
+
 export default {
   data: () => ({
+    clickedRow: false,
     inclusion: '',
     inclusionItems: [],
     alteration: '',
@@ -105,9 +115,17 @@ export default {
     search: '',
     drawer: false
   }),
+  computed: {
+    ...mapGetters({
+      openDialog: 'showCrudDiaglog'
+    })
+  },
   methods: {
     setFilters() {
       this.$store.dispatch('setFilterUsersTableParam', this.search);
+    },
+    handleUser() {
+      this.$store.dispatch('setCrudDialog');
     }
   },
   async mounted() {
