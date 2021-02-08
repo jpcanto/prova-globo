@@ -160,7 +160,7 @@ export default {
           show: true,
           error: false
         };
-        this.$store.dispatch('setSnackbar', this.snackInfo);
+        this.$store.commit('setSnackbar', this.snackInfo);
       } catch (error) {
         this.handleVisible();
         this.snackInfo = {
@@ -168,7 +168,7 @@ export default {
           show: true,
           error: true
         };
-        this.$store.dispatch('setSnackbar', this.snackInfo);
+        this.$store.commit('setSnackbar', this.snackInfo);
       }
     },
     async handleRequest() {

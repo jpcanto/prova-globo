@@ -44,7 +44,6 @@ export default new Vuex.Store({
       const request = await getUsers();
       commit('setUsers', request);
     },
-    setSnackbar: ({ commit }, payload) => commit('setSnackbar', payload),
     handleRow: ({ commit, state }, payload) => {
       const showedRow = state.users.find(user => user.show === true);
       const user = state.users.find(user => user === payload);
