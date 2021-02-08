@@ -37,7 +37,7 @@ class SessionController {
 
     if (!user) return res.status(400).json({ message: "Usuário inválido" });
 
-    const users = await User.updateOne(
+    await User.updateOne(
       { _id: user_id },
       {
         email,
