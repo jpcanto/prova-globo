@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-app-bar color="grey lighten-3" dark flat height="100px">
+    <v-app-bar color="grey lighten-3" dark flat height="100">
       <v-container class="ma-0 align-center" fill-height fluid>
         <form @submit.prevent="setFilters(search)">
           <v-text-field
@@ -172,6 +172,20 @@ export default {
 <style lang="scss" scoped>
 form {
   width: 25vw;
+}
+
+@media only screen and (max-width: 770px) {
+  .v-sheet.v-app-bar.v-toolbar {
+    height: 12vh !important;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .v-sheet.v-app-bar.v-toolbar {
+    height: 20vh !important;
+  }
+  .v-text-field {
+    width: 80vw !important;
+  }
 }
 
 .v-text-field {

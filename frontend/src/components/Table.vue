@@ -1,5 +1,5 @@
 <template>
-  <v-main class="auto pa-8">
+  <v-main class="auto">
     <v-data-table
       v-model="selected"
       :headers="headers"
@@ -89,9 +89,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.v-data-table {
-  @media only screen and (min-width: 750px) {
-    min-width: 90vw !important;
+.v-main {
+  padding: 32px;
+  @media only screen and (max-width: 770px) {
+    padding: 32px 0 !important;
   }
 }
 .disable {
