@@ -178,12 +178,18 @@ form {
   .v-sheet.v-app-bar.v-toolbar {
     height: 12vh !important;
   }
+  .v-navigation-drawer {
+    width: 50vw !important;
+  }
 }
 @media only screen and (max-width: 420px) {
   .v-sheet.v-app-bar.v-toolbar {
     height: 20vh !important;
   }
   .v-text-field {
+    width: 80vw !important;
+  }
+  .v-navigation-drawer {
     width: 80vw !important;
   }
 }
