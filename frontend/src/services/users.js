@@ -11,3 +11,9 @@ export const deleteUser = id => {
 
   return api.delete(url).then(res => res.data);
 };
+
+export const editUser = (id, reqBody) => {
+  const url = `/sessions/${id}`;
+  
+  return api.put(url, reqBody).then(res => res.data);
+};

@@ -16,10 +16,10 @@
     >
       <template v-slot:[`item.actions`]="{ item }">
         <template>
-          <v-icon small class="ma-2" v-if="item.show" @click="editUser(item)">
+          <v-icon small class="ma-2" v-if="item.show" @click="handleUser('edit')">
             mdi-pencil
           </v-icon>
-          <v-icon small class="ma-2" v-if="item.show" @click="handleDeleteUser">
+          <v-icon small class="ma-2" v-if="item.show" @click="handleUser('delete')">
             mdi-delete
           </v-icon>
         </template>
@@ -35,7 +35,13 @@
       color="pink accent-4"
       next-aria-label="Próximo"
     ></v-pagination>
-    <Dialog v-if="deleteDialog" :user="clickedRow" @update:isVisible="handleVisible" />
+    <Dialog
+      :user="clickedRow"
+      :type="dialogType"
+      :isVisible="openDialog"
+      :key="openDialog"
+      @update:isVisible="handleVisible"
+    />
   </v-main>
 </template>
 
@@ -56,7 +62,8 @@ export default {
       page: 1,
       pageCount: 0,
       itemsPerPage: 4,
-      deleteDialog: false,
+      openDialog: false,
+      dialogType: '',
       headers: [
         {
           text: 'USUÁRIO',
@@ -78,7 +85,18 @@ export default {
       search: 'filterUsersTableParam'
     }),
     clickedRow() {
-      return this.users.find(row => row.show === true);
+      return this.users.name
+        ? this.users.find(row => row.show === true)
+        : {
+            _id: 'default',
+            email: 'default',
+            name: 'default',
+            inclusionDate: 'default',
+            alterationDate: 'default',
+            rules: 'default',
+            status: 'default',
+            show: false
+          };
     }
   },
   methods: {
@@ -96,11 +114,12 @@ export default {
 
       rowWasClicked.show = !rowWasClicked.show;
     },
-    handleDeleteUser() {
-      this.deleteDialog = true;
+    handleUser(type) {
+      this.openDialog = true;
+      this.dialogType = type;
     },
     handleVisible(value) {
-      this.deleteDialog = value;
+      this.openDialog = value;
     }
   },
   async mounted() {

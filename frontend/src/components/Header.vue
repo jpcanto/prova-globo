@@ -103,17 +103,11 @@ export default {
     actives: '',
     activeItems: [],
     search: '',
-    drawer: false,
-    group: null
+    drawer: false
   }),
   methods: {
     setFilters() {
       this.$store.dispatch('setFilterUsersTableParam', this.search);
-    }
-  },
-  watch: {
-    group() {
-      this.drawer = false;
     }
   },
   async mounted() {

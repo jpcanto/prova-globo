@@ -20,7 +20,7 @@ export default {
       snackbar: this.info.show,
       text: this.info.text,
       color: this.info.error ? 'red' : 'green',
-      timeout: 2000
+      timeout: 3000
     };
   }
 };
