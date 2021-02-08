@@ -10,6 +10,7 @@ routes.put("/sessions/:user_id", SessionController.update);
 routes.delete("/sessions/:user_id", SessionController.destroy);
 routes.post("/sessions", SessionController.store);
 
-routes.get("/challenge/:string", ChallengeController.two);
+routes.post("/challenge/one", ChallengeController.one);
+routes.get("/challenge/two/:string", ChallengeController.two);
 
 export default routes;
