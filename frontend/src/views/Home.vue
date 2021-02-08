@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 import Table from '../components/Table';
 import Header from '../components/Header';
@@ -24,12 +24,11 @@ export default {
     Snackbar
   },
   computed: {
-    ...mapGetters({
-      openDialog: 'showCrudDiaglog',
-      dialogType: 'getDialogType',
-      clickedRow: 'getCurrentUser',
-      snackInfo: 'getSnackBarStatus',
-      isSnackVisible: 'isSnackVisible'
+    ...mapState({
+      openDialog: state => state.crudDialog,
+      dialogType: state => state.dialogType,
+      clickedRow: state => state.currentUser,
+      snackInfo: state => state.snackBarStatus
     })
   },
   created() {

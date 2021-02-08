@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Table',
@@ -55,10 +55,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      search: 'filterUsersTableParam'
-    }),
     ...mapState({
+      search: state => state.filterUsersTableParam,
       users: state => state.users
     }),
     headers() {

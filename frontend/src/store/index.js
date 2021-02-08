@@ -33,13 +33,7 @@ export default new Vuex.Store({
   },
 
   getters: {
-    filterUsersTableParam: state => state.filterUsersTableParam,
-    showCrudDiaglog: state => state.crudDialog,
-    getDialogType: state => state.dialogType,
-    getCurrentUser: state => state.currentUser,
-    getSnackBarStatus: state => state.snackBarStatus,
     isSnackVisible: state => state.snackBarStatus.show,
-
     getInclusionItems: state => [...new Set(state.users.map(u => u.inclusionDate))],
     getAlterationItems: state => [...new Set(state.users.map(u => u.alterationDate))],
     getActiveItems: state => [...new Set(state.users.map(u => u.status))]
