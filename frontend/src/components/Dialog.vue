@@ -26,11 +26,12 @@
 
         <v-card v-else>
           <v-card-title class="headline">
-            API utilizada
+            Sobre o app
           </v-card-title>
 
-          <v-card-text>
-            {{ API }}
+          <v-card-text class="mt-6">
+            <div><span class="green--text">API: </span> {{ API }}</div>
+            <div><span class="green--text">Versão do app: </span> 1.0.0</div>
           </v-card-text>
 
           <v-card-actions>
