@@ -75,18 +75,14 @@
         </v-card>
       </v-dialog>
     </v-row>
-    <Snackbar v-if="endRequest" :info="snackInfo" />
   </v-main>
 </template>
 
 <script>
 import { deleteUser, editUser, createUser } from '../services/users';
-import Snackbar from './Snackbar';
+
 export default {
   props: ['user', 'type', 'isVisible'],
-  components: {
-    Snackbar
-  },
   data() {
     return {
       name: this.user.name,
@@ -96,7 +92,6 @@ export default {
       menu: false,
       dialog: this.isVisible,
       id: this.user._id,
-      endRequest: false,
       snackInfo: {}
     };
   },
@@ -140,20 +135,20 @@ export default {
       try {
         this.handleRequest();
         this.handleVisible();
-        this.endRequest = true;
         this.snackInfo = {
           text: `Usuário ${this.tryMessage.tryText} com sucesso`,
           show: true,
           error: false
         };
+        this.$store.dispatch('setSnackbar', this.snackInfo);
       } catch (error) {
         this.handleVisible();
-        this.endRequest = true;
         this.snackInfo = {
           text: `Ocorreu um erro ao tentar ${this.catchMessage.catchText} o usuário, erro: ${error}`,
           show: true,
           error: true
         };
+        this.$store.dispatch('setSnackbar', this.snackInfo);
       }
     },
     async handleRequest() {

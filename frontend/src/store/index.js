@@ -19,7 +19,8 @@ export default new Vuex.Store({
       rules: 'default',
       status: 'default',
       show: false
-    }
+    },
+    snackBarStatus: {}
   },
   mutations: {
     setFilterUsersTableParam: (state, payload) => (state.filterUsersTableParam = payload),
@@ -38,13 +39,16 @@ export default new Vuex.Store({
 
       if (user) user.show = !user.show;
       state.currentUser = payload;
-    }
+    },
+    setSnackbar: (state, payload) => (state.snackBarStatus = payload)
   },
   getters: {
     filterUsersTableParam: state => state.filterUsersTableParam,
     showCrudDiaglog: state => state.crudDialog,
     getDialogType: state => state.dialogType,
     getCurrentUser: state => state.currentUser,
+    getSnackBarStatus: state => state.snackBarStatus,
+    isSnackVisible: state => state.snackBarStatus.show,
 
     getInclusionItems: state => [...new Set(state.users.map(u => u.inclusionDate))],
     getAlterationItems: state => [...new Set(state.users.map(u => u.alterationDate))],
@@ -55,6 +59,7 @@ export default new Vuex.Store({
     setCrudDialog: ({ commit }) => commit('setCrudDialog'),
     setDialogType: ({ commit }, payload) => commit('setDialogType', payload),
     setCurrentUser: ({ commit }, payload) => commit('setCurrentUser', payload),
-    requestUsers: ({ commit }) => commit('requestUsers')
+    requestUsers: ({ commit }) => commit('requestUsers'),
+    setSnackbar: ({ commit }, payload) => commit('setSnackbar', payload)
   }
 });
