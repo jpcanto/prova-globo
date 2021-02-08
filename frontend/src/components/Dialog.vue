@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { deleteUser, editUser } from '../services/users';
+import { deleteUser, editUser, createUser } from '../services/users';
 import Snackbar from './Snackbar';
 export default {
   props: ['user', 'type', 'isVisible'],
@@ -164,6 +164,10 @@ export default {
 
         case 'edit':
           await editUser(this.id, this.reqBody);
+          break;
+
+        case 'create':
+          await createUser(this.reqBody);
           break;
       }
     },
