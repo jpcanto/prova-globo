@@ -35,7 +35,7 @@
           <v-icon color="grey darken-1" class="btn">mdi-home</v-icon>
         </v-btn>
         <v-btn icon>
-          <v-icon color="grey darken-1" class="btn">mdi-cog</v-icon>
+          <v-icon color="grey darken-1" class="btn" @click="handleApiInfo">mdi-cog</v-icon>
         </v-btn>
         <v-btn icon>
           <v-icon color="grey darken-1" class="btn">mdi-power</v-icon>
@@ -160,6 +160,10 @@ export default {
       });
       this.$store.dispatch('setCrudDialog');
       this.$store.dispatch('setDialogType', 'create');
+    },
+    handleApiInfo() {
+      this.$store.dispatch('setCrudDialog');
+      this.$store.dispatch('setDialogType', 'api-info');
     }
   }
 };

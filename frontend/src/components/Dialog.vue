@@ -1,8 +1,8 @@
 <template>
   <v-main>
     <v-row justify="center">
-      <v-dialog v-if="type === 'delete'" v-model="dialog" max-width="390">
-        <v-card>
+      <v-dialog v-if="type === 'delete' || type === 'api-info'" v-model="dialog" max-width="390">
+        <v-card v-if="type === 'delete'">
           <v-card-title class="headline">
             Deseja prosseguir com a deleção do usuário "{{ user.name }}" ?
           </v-card-title>
@@ -20,6 +20,24 @@
 
             <v-btn color="pink accent-4" text @click="handleClick">
               Deletar
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+
+        <v-card v-else>
+          <v-card-title class="headline">
+            API utilizada
+          </v-card-title>
+
+          <v-card-text>
+            {{ API }}
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn color="green" text @click="handleVisible">
+              OK
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -85,6 +103,7 @@ export default {
   props: ['user', 'type', 'isVisible'],
   data() {
     return {
+      API: process.env.VUE_APP_API,
       name: this.user.name,
       email: this.user.email,
       rules: this.user.rules,
