@@ -17,7 +17,7 @@
         <v-spacer></v-spacer>
 
         <v-btn light @click.stop="drawer = !drawer" class="btn mr-4">
-          <v-icon color="grey darken-1">mdi-filter</v-icon>
+          <v-icon color="grey darken-1">mdi-tune</v-icon>
         </v-btn>
 
         <v-btn
@@ -45,7 +45,7 @@
 
     <v-navigation-drawer v-model="drawer" fixed right temporary color="grey lighten-3" width="30vw">
       <v-toolbar color="grey lighten-5" height="90" class="elevation-1">
-        <v-icon color="grey darken-1" class="btn mr-2">mdi-filter</v-icon>
+        <v-icon color="grey darken-1" class="btn mr-2">mdi-tune</v-icon>
         <v-toolbar-title>FILTROS</v-toolbar-title>
         <v-btn small absolute right color="elevation-1" @click.stop="drawer = !drawer">X</v-btn>
       </v-toolbar>
