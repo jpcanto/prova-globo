@@ -2,14 +2,14 @@
   <v-main class="mb-10 elevation-3">
     <v-app-bar color="grey lighten-3" dark flat height="100">
       <v-container class="ma-0 align-center" fill-height fluid>
-        <v-btn class="btn-gradient"></v-btn>
+        <v-btn v-if="isButtonsVisible" class="btn-gradient"></v-btn>
 
-        <v-divider class="mx-8" color="grey" inset vertical></v-divider>
+        <v-divider v-if="isButtonsVisible" class="mx-8" color="grey" inset vertical></v-divider>
 
-        <v-btn light class="btn">
+        <v-btn v-if="isButtonsVisible" light class="btn">
           <v-icon color="grey darken-2">mdi-security</v-icon>
         </v-btn>
-        <v-btn class="btn btn-gradient mr-5">
+        <v-btn v-if="isButtonsVisible" class="btn btn-gradient mr-5">
           <v-icon color="white">mdi-account</v-icon>
         </v-btn>
 
@@ -42,15 +42,15 @@
           INCLUIR USUÁRIO
         </v-btn>
 
-        <v-divider class="mx-5" color="grey" inset vertical></v-divider>
+        <v-divider v-if="isButtonsVisible" class="mx-5" color="grey" inset vertical></v-divider>
 
         <v-btn icon>
-          <v-icon color="grey darken-1" class="btn">mdi-home</v-icon>
+          <v-icon v-if="isButtonsVisible" color="grey darken-1" class="btn">mdi-home</v-icon>
         </v-btn>
         <v-btn icon>
           <v-icon color="grey darken-1" class="btn" @click="handleApiInfo">mdi-cog</v-icon>
         </v-btn>
-        <v-btn icon>
+        <v-btn v-if="isButtonsVisible" icon>
           <v-icon color="grey darken-1" class="btn">mdi-power</v-icon>
         </v-btn>
       </v-container>
@@ -123,16 +123,19 @@ import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'Header',
-  data: () => ({
-    inclusionItems: [],
-    alterationItems: [],
-    activeItems: [],
-    inclusion: [],
-    alteration: [],
-    actives: [],
-    search: '',
-    drawer: false
-  }),
+  data() {
+    return {
+      isButtonsVisible: this.$vuetify.breakpoint.lgAndUp,
+      inclusionItems: [],
+      alterationItems: [],
+      activeItems: [],
+      inclusion: [],
+      alteration: [],
+      actives: [],
+      search: '',
+      drawer: false
+    };
+  },
   computed: {
     ...mapState({
       users: state => state.users
