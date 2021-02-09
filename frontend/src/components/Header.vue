@@ -7,10 +7,6 @@
         </v-btn>
       </template>
       <v-container v-if="isDesktop" class="ma-0 align-center" fill-height fluid>
-        <v-btn class="btn-gradient"></v-btn>
-
-        <v-divider class="mx-8" color="grey" inset vertical></v-divider>
-
         <v-btn light class="btn">
           <v-icon color="grey darken-2">mdi-security</v-icon>
         </v-btn>
@@ -18,13 +14,14 @@
           <v-icon color="white">mdi-account</v-icon>
         </v-btn>
 
-        <form @submit.prevent="setSearchBarFilter" class="mt-3">
+        <form @submit.prevent="setSearchBarFilter">
           <v-text-field
             v-model="search"
             light
             label="Pesquisar..."
             class="mx-4"
             append-icon="mdi-magnify"
+            hide-details
             @click:append="setSearchBarFilter"
           >
           </v-text-field>
@@ -254,6 +251,14 @@ export default {
 <style lang="scss" scoped>
 form {
   width: 25vw;
+
+  ::v-deep .v-input--hide-details > .v-input__control > .v-input__slot {
+    padding: 5px 0;
+  }
+}
+
+::v-deep .v-navigation-drawer .v-label {
+  color: #d81b60 !important;
 }
 
 @media only screen and (max-width: 770px) {
