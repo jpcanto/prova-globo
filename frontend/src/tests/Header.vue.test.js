@@ -53,14 +53,4 @@ describe('Home suit', () => {
     button.trigger('click');
     expect(drawer.classes()).toContain('v-navigation-drawer--fixed');
   });
-
-  it('toggle create user modal', () => {
-    const button = wrapper.find('.create-user');
-    const dialog = wrapper.find('.v-dialog');
-
-    expect(button.exists()).toBe(true);
-    expect(dialog.exists()).toBe(false);
-
-    button.trigger('click').then(() => expect(dialog.exists()).toBe(true));
-  });
 });
