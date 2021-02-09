@@ -13,6 +13,9 @@ export default {
 </script>
 
 <style lang="scss">
+.v-navigation-drawer .v-label {
+  color: #d81b60 !important;
+}
 .v-data-table {
   thead tr {
     th {
