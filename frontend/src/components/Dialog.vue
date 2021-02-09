@@ -53,10 +53,20 @@
             <v-container>
               <v-row>
                 <v-col cols="12">
-                  <v-text-field label="Nome *" v-model="name" required class="name-input"></v-text-field>
+                  <v-text-field
+                    label="Nome *"
+                    v-model="name"
+                    required
+                    class="name-input"
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12">
-                  <v-text-field label="Email *" v-model="email" required class="email-input"></v-text-field>
+                  <v-text-field
+                    label="Email *"
+                    v-model="email"
+                    required
+                    class="email-input"
+                  ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
@@ -77,7 +87,7 @@
                     background-color="white"
                     height="50"
                     filled
-                    data-cy='status-input'
+                    data-cy="status-input"
                   ></v-select>
                 </v-col>
               </v-row>
@@ -177,14 +187,17 @@ export default {
       switch (this.type) {
         case 'delete':
           await deleteUser(this.id);
+          this.$store.dispatch('requestUsers');
           break;
 
         case 'edit':
           await editUser(this.id, this.reqBody);
+          this.$store.dispatch('requestUsers');
           break;
 
         case 'create':
           await createUser(this.reqBody);
+          this.$store.dispatch('requestUsers');
           break;
       }
     },
