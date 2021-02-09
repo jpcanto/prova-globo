@@ -27,7 +27,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn light @click.stop="drawer = !drawer" class="btn mr-4">
+        <v-btn light @click.stop="drawer = !drawer" class="btn mr-4 filter">
           <v-icon color="grey darken-1">mdi-tune</v-icon>
         </v-btn>
 
