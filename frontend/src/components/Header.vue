@@ -1,15 +1,20 @@
 <template>
   <v-main class="mb-10 elevation-3">
     <v-app-bar color="grey lighten-3" dark flat height="100">
-      <v-container class="ma-0 align-center" fill-height fluid>
-        <v-btn v-if="isButtonsVisible" class="btn-gradient"></v-btn>
+      <template v-if="!isDesktop">
+        <v-btn light outlined class="mx-2" large color="pink darken-1" @click.stop="menu = !menu">
+          <v-icon color="pink darken-1">mdi-menu</v-icon>
+        </v-btn>
+      </template>
+      <v-container v-if="isDesktop" class="ma-0 align-center" fill-height fluid>
+        <v-btn class="btn-gradient"></v-btn>
 
-        <v-divider v-if="isButtonsVisible" class="mx-8" color="grey" inset vertical></v-divider>
+        <v-divider class="mx-8" color="grey" inset vertical></v-divider>
 
-        <v-btn v-if="isButtonsVisible" light class="btn">
+        <v-btn light class="btn">
           <v-icon color="grey darken-2">mdi-security</v-icon>
         </v-btn>
-        <v-btn v-if="isButtonsVisible" class="btn btn-gradient mr-5">
+        <v-btn class="btn btn-gradient mr-5">
           <v-icon color="white">mdi-account</v-icon>
         </v-btn>
 
@@ -42,15 +47,15 @@
           INCLUIR USUÁRIO
         </v-btn>
 
-        <v-divider v-if="isButtonsVisible" class="mx-5" color="grey" inset vertical></v-divider>
+        <v-divider class="mx-5" color="grey" inset vertical></v-divider>
 
         <v-btn icon>
-          <v-icon v-if="isButtonsVisible" color="grey darken-1" class="btn">mdi-home</v-icon>
+          <v-icon color="grey darken-1" class="btn">mdi-home</v-icon>
         </v-btn>
         <v-btn icon>
           <v-icon color="grey darken-1" class="btn" @click="handleApiInfo">mdi-cog</v-icon>
         </v-btn>
-        <v-btn v-if="isButtonsVisible" icon>
+        <v-btn icon>
           <v-icon color="grey darken-1" class="btn">mdi-power</v-icon>
         </v-btn>
       </v-container>
@@ -115,6 +120,51 @@
         APLICAR
       </v-btn>
     </v-navigation-drawer>
+
+    <v-navigation-drawer v-model="menu" fixed right temporary width="30vw">
+      <v-toolbar color="grey lighten-5" height="90" class="elevation-1">
+        <v-toolbar-title>MENU</v-toolbar-title>
+        <v-btn small absolute right color="elevation-1" @click.stop="menu = !menu">X</v-btn>
+      </v-toolbar>
+      <v-btn
+        elevation="1"
+        tile
+        color="pink darken-1"
+        outlined
+        class="btn user-btn text-body-2 pl-0 ma-6"
+        @click="handleUser"
+      >
+        <v-icon class="ma-2 create-user">mdi-account </v-icon>
+        INCLUIR USUÁRIO
+      </v-btn>
+
+      <v-btn
+        elevation="1"
+        tile
+        color="pink darken-1"
+        outlined
+        class="btn user-btn text-body-2 pl-0 ma-6"
+        @click.stop="
+          drawer = !drawer;
+          menu = !menu;
+        "
+      >
+        <v-icon class="ma-2 create-user">mdi-tune </v-icon>
+        FILTROS
+      </v-btn>
+
+      <form @submit.prevent="setSearchBarFilter" class="mt-3">
+        <v-text-field
+          v-model="search"
+          light
+          label="Pesquisar..."
+          class="mx-4"
+          append-icon="mdi-magnify"
+          @click:append="setSearchBarFilter"
+        >
+        </v-text-field>
+      </form>
+    </v-navigation-drawer>
   </v-main>
 </template>
 
@@ -125,7 +175,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      isButtonsVisible: this.$vuetify.breakpoint.lgAndUp,
+      isDesktop: this.$vuetify.breakpoint.lgAndUp,
       inclusionItems: [],
       alterationItems: [],
       activeItems: [],
@@ -133,7 +183,8 @@ export default {
       alteration: [],
       actives: [],
       search: '',
-      drawer: false
+      drawer: false,
+      menu: false
     };
   },
   computed: {
@@ -211,9 +262,6 @@ form {
   }
 }
 @media only screen and (max-width: 420px) {
-  .v-sheet.v-app-bar.v-toolbar {
-    height: 20vh !important;
-  }
   .v-text-field {
     width: 80vw !important;
   }
