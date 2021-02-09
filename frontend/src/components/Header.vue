@@ -157,7 +157,10 @@
         <v-text-field
           v-model="search"
           light
+          outlined
+          clearable
           label="Pesquisar..."
+          color="pink darken-1"
           class="mx-4"
           append-icon="mdi-magnify"
           @click:append="setSearchBarFilter"
@@ -175,7 +178,7 @@ export default {
   name: 'Header',
   data() {
     return {
-      isDesktop: this.$vuetify.breakpoint.lgAndUp,
+      isDesktop: this.$vuetify.breakpoint.mdAndUp,
       inclusionItems: [],
       alterationItems: [],
       activeItems: [],
