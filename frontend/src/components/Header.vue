@@ -2,7 +2,18 @@
   <v-main class="mb-10 elevation-3">
     <v-app-bar color="grey lighten-3" dark flat height="100">
       <v-container class="ma-0 align-center" fill-height fluid>
-        <form @submit.prevent="setSearchBarFilter">
+        <v-btn class="btn-gradient"></v-btn>
+
+        <v-divider class="mx-8" color="grey" inset vertical></v-divider>
+
+        <v-btn light class="btn">
+          <v-icon color="grey darken-2">mdi-security</v-icon>
+        </v-btn>
+        <v-btn class="btn btn-gradient mr-5">
+          <v-icon color="white">mdi-account</v-icon>
+        </v-btn>
+
+        <form @submit.prevent="setSearchBarFilter" class="mt-3">
           <v-text-field
             v-model="search"
             light
@@ -30,6 +41,8 @@
           <v-icon class="ma-2">mdi-account </v-icon>
           INCLUIR USUÁRIO
         </v-btn>
+
+        <v-divider class="mx-5" color="grey" inset vertical></v-divider>
 
         <v-btn icon>
           <v-icon color="grey darken-1" class="btn">mdi-home</v-icon>
@@ -143,6 +156,11 @@ export default {
   },
   methods: {
     setComboFilters() {
+      console.log({
+        inclusionDate: this.inclusion,
+        alterationDate: this.alteration,
+        status: this.actives
+      });
       this.$store.commit('setUsersTableFilterCombo', {
         inclusionDate: this.inclusion,
         alterationDate: this.alteration,
@@ -208,5 +226,18 @@ form {
   border-radius: 5px;
   height: 45px !important;
   width: fit-content;
+
+  & .v-icon.v-icon {
+    font-size: 20px;
+  }
+}
+.btn-gradient {
+  background-image: linear-gradient(to right top, #dc375d, #ea434f, #f3543e, #f8672a, #f97b07);
+}
+.v-divider--vertical.v-divider--inset {
+  border-color: rgb(228 228 228 / 87%);
+  border-width: 1px;
+  margin-top: 20px;
+  max-height: calc(100% - 40px);
 }
 </style>
