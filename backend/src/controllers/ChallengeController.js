@@ -71,6 +71,26 @@ class ChallengeController {
           "Expressão Válida, Todos os brackets estão fechando corretamente",
       });
   }
+
+  three(req, res) {
+    const { array } = req.body;
+    let results = [];
+
+    for (let i = 0; i <= array.length - 1; i++) {
+      const j = i === 0 ? 1 : 0;
+
+      for (let j = 0; j <= array.length - 1; j++) {
+        if (!(i === j)) results.push([array[i], array[j]]);
+      }
+    }
+
+    results = results.filter((result) => result[0] < result[1]);
+    let result = Math.max(...results.map((result) => result[1] - result[0]));
+
+    return res.status(200).json({
+      message: `O maior lucro possível é ${result}`,
+    });
+  }
 }
 
 export default new ChallengeController();
