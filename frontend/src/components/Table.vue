@@ -6,7 +6,6 @@
       :headers="headers"
       :items="users"
       :search="search"
-      :custom-filter="filter"
       :page.sync="page"
       :items-per-page="itemsPerPage"
       @page-count="pageCount = $event"
@@ -34,7 +33,6 @@
       :length="pageCount"
       class="ma-8"
       color="pink accent-4"
-      next-aria-label="Próximo"
     ></v-pagination>
   </v-main>
 </template>
@@ -47,7 +45,6 @@ export default {
 
   data() {
     return {
-      activeFilters: { inclusionDate: ['08/02/2021'], alterationDate: [], status: [] },
       selected: [],
       page: 1,
       pageCount: 0,
@@ -57,7 +54,8 @@ export default {
   computed: {
     ...mapState({
       search: state => state.filterUsersTableParam,
-      users: state => state.users
+      users: state => state.users,
+      activeFilters: state => state.filterUsersTableCombo
     }),
     headers() {
       return [
@@ -70,28 +68,28 @@ export default {
         {
           text: 'DATA DE INCLUSÃO',
           sortable: false,
-          value: 'inclusionDate'
-          // filter: value =>
-          //   this.activeFilters.inclusionDate
-          //     ? this.activeFilters.inclusionDate.includes(value)
-          //     : true
+          value: 'inclusionDate',
+          filter: value =>
+            this.activeFilters.inclusionDate.length
+              ? this.activeFilters.inclusionDate.includes(value)
+              : true
         },
         {
           text: 'DATA DE ALTERAÇÃO',
           sortable: false,
-          value: 'alterationDate'
-          // filter: value =>
-          //   this.activeFilters.alterationDate
-          //     ? this.activeFilters.alterationDate.includes(value)
-          //     : true
+          value: 'alterationDate',
+          filter: value =>
+            this.activeFilters.alterationDate.length
+              ? this.activeFilters.alterationDate.includes(value)
+              : true
         },
         { text: 'REGRAS', sortable: false, value: 'rules' },
         {
           text: 'STATUS',
           sortable: false,
-          value: 'status'
-          // filter: value =>
-          //   this.activeFilters.status ? this.activeFilters.status.includes(value) : true
+          value: 'status',
+          filter: value =>
+            this.activeFilters.status.length ? this.activeFilters.status.includes(value) : true
         },
         { align: 'end', text: 'AÇÕES', sortable: false, value: 'actions', width: '10%' }
       ];

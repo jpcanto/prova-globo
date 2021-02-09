@@ -7,6 +7,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     filterUsersTableParam: '',
+    filterUsersTableCombo: {
+      inclusionDate: [],
+      alterationDate: [],
+      status: []
+    },
     crudDialog: false,
     dialogType: '',
     users: [{}],
@@ -29,7 +34,8 @@ export default new Vuex.Store({
     setDialogType: (state, payload) => (state.dialogType = payload),
     setUsers: (state, payload) => (state.users = payload),
     setCurrentUser: (state, payload) => (state.currentUser = payload),
-    setSnackbar: (state, payload) => (state.snackBarStatus = payload)
+    setSnackbar: (state, payload) => (state.snackBarStatus = payload),
+    setUsersTableFilterCombo: (state, payload) => (state.filterUsersTableCombo = payload)
   },
 
   getters: {

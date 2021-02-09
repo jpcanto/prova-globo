@@ -2,14 +2,14 @@
   <v-main>
     <v-app-bar color="grey lighten-3" dark flat height="100">
       <v-container class="ma-0 align-center" fill-height fluid>
-        <form @submit.prevent="setFilters(search)">
+        <form @submit.prevent="setSearchBarFilter">
           <v-text-field
             v-model="search"
             light
             label="Pesquisar..."
             class="mx-4"
             append-icon="mdi-magnify"
-            @click:append="setFilters(search)"
+            @click:append="setSearchBarFilter"
           >
           </v-text-field>
         </form>
@@ -97,7 +97,7 @@
         width="-webkit-fill-available"
         color="pink accent-4"
         class="ma-8"
-        @click="setFilters(inclusion || alteration || actives)"
+        @click="setComboFilters"
       >
         APLICAR
       </v-btn>
@@ -114,9 +114,9 @@ export default {
     inclusionItems: [],
     alterationItems: [],
     activeItems: [],
-    inclusion: '',
-    alteration: '',
-    actives: '',
+    inclusion: [],
+    alteration: [],
+    actives: [],
     search: '',
     drawer: false
   }),
@@ -142,10 +142,17 @@ export default {
     }
   },
   methods: {
-    setFilters(filter) {
-      this.$store.commit('setFilterUsersTableParam', filter);
+    setComboFilters() {
+      this.$store.commit('setUsersTableFilterCombo', {
+        inclusionDate: this.inclusion,
+        alterationDate: this.alteration,
+        status: this.actives
+      });
 
       if (this.drawer) this.drawer = false;
+    },
+    setSearchBarFilter() {
+      this.$store.commit('setFilterUsersTableParam', this.search);
     },
     handleUser() {
       this.$store.dispatch('handleRow', {
