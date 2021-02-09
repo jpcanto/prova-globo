@@ -121,17 +121,17 @@ export default {
       let catchText = '';
       switch (this.type) {
         case 'delete':
-          tryText = 'deletando';
+          tryText = 'deletado';
           catchText = 'deletar';
           break;
 
         case 'edit':
-          tryText = 'editando';
+          tryText = 'editado';
           catchText = 'editar';
           break;
 
         case 'create':
-          tryText = 'criando';
+          tryText = 'criado';
           catchText = 'criar';
           break;
       }
