@@ -67,6 +67,7 @@ export default {
         { text: 'EMAIL', sortable: false, value: 'email' },
         {
           text: 'DATA DE INCLUSÃO',
+          align: 'center',
           sortable: false,
           value: 'inclusionDate',
           filter: value =>
@@ -76,6 +77,7 @@ export default {
         },
         {
           text: 'DATA DE ALTERAÇÃO',
+          align: 'center',
           sortable: false,
           value: 'alterationDate',
           filter: value =>
@@ -83,9 +85,10 @@ export default {
               ? this.activeFilters.alterationDate.includes(value)
               : true
         },
-        { text: 'REGRAS', sortable: false, value: 'rules' },
+        { text: 'REGRAS', align: 'center', sortable: false, value: 'rules' },
         {
           text: 'STATUS',
+          align: 'center',
           sortable: false,
           value: 'status',
           filter: value =>
