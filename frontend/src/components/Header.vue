@@ -38,7 +38,7 @@
           class="btn user-btn text-body-2 pl-0 mr-6"
           @click="handleUser"
         >
-          <v-icon class="ma-2">mdi-account </v-icon>
+          <v-icon class="ma-2 create-user">mdi-account </v-icon>
           INCLUIR USUÁRIO
         </v-btn>
 
