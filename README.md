@@ -37,3 +37,17 @@ OBS: Se após rodar os comandos acima, o projeto não abrir no browser automatic
 ### Para executar os testes, executar o comando:
 
 `yarn test` ou `npm test`
+
+## Para executar os desafios do backend eu preciso:
+
+### API: 'http://localhost:3333'
+
+desafio 1 - endpoint: '/challenge/one'
+
+- Payload: `{ "array": [2, 7, 11, 15, 1, 10, 8], "target": 9 }`
+- OBS: Testar um payload onde o resultado deve ser negativo (nenhum par tem a soma igual ao alvo)
+
+desafio 2 - endpoint: '/challenge/two/:string'
+
+- Req Param: `({})`
+- OBS: Alterar no endpoint ':string' pelo req Param forncedio, testar um Req param onde o resultado deve ser negativo
