@@ -47,7 +47,7 @@
       <v-dialog v-else v-model="dialog" persistent max-width="600px">
         <v-card>
           <v-card-title>
-            <span class="headline">{{ tryMessage.catchText }} usuário</span>
+            <span class="headline">{{ tryMessage.catchText.toUpperCase() }} USUÁRIO</span>
           </v-card-title>
           <v-card-text>
             <v-container>
