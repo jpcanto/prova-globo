@@ -14,14 +14,6 @@ export default {
 
 <style lang="scss">
 .v-data-table {
-  .v-icon.v-icon {
-    color: transparent;
-    font-size: 15px;
-
-    background-color: #fff;
-    border: 2px solid #eaeaea;
-    border-radius: 5px;
-  }
   thead tr {
     th {
       &:first-of-type,
@@ -49,6 +41,16 @@ export default {
       &:first-of-type,
       &:last-of-type {
         padding: 0 30px !important;
+      }
+      &:first-of-type {
+        .v-icon.v-icon {
+          color: transparent;
+          font-size: 15px;
+
+          background-color: #fff;
+          border: 2px solid #eaeaea;
+          border-radius: 5px;
+        }
       }
     }
   }
