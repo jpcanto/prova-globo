@@ -50,6 +50,16 @@ class ChallengeController {
       }
     }
 
+    if (!Array.isArray(array))
+      return res.status(400).json({
+        message: `Erro, O parâmetro 'array' precisa ser do tipo Array`,
+      });
+
+    if (typeof target !== 'number')
+      return res.status(400).json({
+        message: `Erro, O parâmetro 'target' precisa ser do tipo number`,
+      });
+
     if (matchers.length)
       return res.status(200).json({
         message: `Expressão válida, esses são os pares que juntos somam o alvo, ${matchers.map(
