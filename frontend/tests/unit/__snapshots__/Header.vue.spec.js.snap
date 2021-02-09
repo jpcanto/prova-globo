@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home suit matches snapshot 1`] = `
+<main class="v-main mb-10 elevation-3" style="padding: 0px 0px 0px 0px;">
+  <div class="v-main__wrap">
+    <header class="v-sheet theme--dark v-toolbar v-toolbar--flat v-app-bar grey lighten-3" style="height: 100px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;">
+      <div class="v-toolbar__content" style="height: 100px;">
+        <!---->
+        <div class="container ma-0 align-center container--fluid fill-height"><button type="button" class="btn-gradient v-btn v-btn--is-elevated v-btn--has-bg theme--dark v-size--default"><span class="v-btn__content"></span></button>
+          <hr role="separator" aria-orientation="vertical" color="grey" class="mx-8 v-divider v-divider--inset v-divider--vertical theme--dark"> <button type="button" class="btn v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-security theme--light grey--text text--darken-2"></i></span></button> <button type="button" class="btn btn-gradient mr-5 v-btn v-btn--is-elevated v-btn--has-bg theme--dark v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-account theme--dark white--text"></i></span></button>
+          <form class="mt-3">
+            <div class="v-input mx-4 theme--light v-text-field">
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-12" class="v-label theme--light" style="left: 0px; position: absolute;">Pesquisar...</label><input id="input-12" type="text"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><button type="button" aria-label="append icon" class="v-icon notranslate v-icon--link mdi mdi-magnify theme--light"></button></div>
+                  </div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="spacer"></div> <button type="button" class="btn mr-4 filter v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate mdi mdi-tune theme--light grey--text text--darken-1"></i></span></button> <button type="button" class="btn user-btn text-body-2 pl-0 mr-6 v-btn v-btn--is-elevated v-btn--has-bg v-btn--tile theme--dark elevation-1 v-size--default pink darken-1"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate ma-2 create-user mdi mdi-account theme--dark"></i>
+        INCLUIR USUÁRIO
+      </span></button>
+          <hr role="separator" aria-orientation="vertical" color="grey" class="mx-5 v-divider v-divider--inset v-divider--vertical theme--dark"> <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate btn mdi mdi-home theme--dark grey--text text--darken-1"></i></span></button> <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span class="v-btn__content"><button type="button" class="v-icon notranslate btn v-icon--link mdi mdi-cog theme--dark grey--text text--darken-1"></button></span></button> <button type="button" class="v-btn v-btn--icon v-btn--round theme--dark v-size--default"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate btn mdi mdi-power theme--dark grey--text text--darken-1"></i></span></button>
+        </div>
+      </div>
+    </header>
+    <aside class="v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--is-mobile v-navigation-drawer--right v-navigation-drawer--temporary theme--light grey lighten-3" style="height: 100%; top: 0px; transform: translateX(100%); width: 30vw;">
+      <div class="v-navigation-drawer__content">
+        <header class="elevation-1 v-sheet theme--light v-toolbar grey lighten-5" style="height: 90px;">
+          <div class="v-toolbar__content" style="height: 90px;"><i aria-hidden="true" class="v-icon notranslate btn mr-2 mdi mdi-tune theme--light grey--text text--darken-1"></i>
+            <div class="v-toolbar__title">FILTROS</div> <button type="button" class="v-btn v-btn--absolute v-btn--is-elevated v-btn--has-bg v-btn--right theme--light v-size--small elevation-1"><span class="v-btn__content">X</span></button>
+          </div>
+        </header>
+        <div class="grey--text font-italic ma-10">
+          Utilize os filtros abaixo para refinar os resultados da tabela, clique no botão APLICAR para
+          salvar as alterações.
+        </div>
+        <div class="container mt-7">
+          <div class="v-input pl-4 pr-4 theme--light v-text-field v-text-field--filled v-text-field--enclosed v-select">
+            <div class="v-input__control">
+              <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-31" class="v-input__slot grey lighten-3" style="height: 60px;">
+                <div class="v-input__prepend-inner">
+                  <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true" class="v-icon notranslate mdi mdi-calendar theme--light"></i></div>
+                </div>
+                <div class="v-select__slot"><label for="input-31" class="v-label theme--light" style="left: 0px; position: absolute;">TODAS AS DATAS DE INCLUSÃO</label>
+                  <div class="v-select__selections"><input id="input-31" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                  </div><input type="hidden">
+                </div>
+                <div class="v-menu">
+                  <!---->
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v-input pl-4 pr-4 theme--light v-text-field v-text-field--filled v-text-field--enclosed v-select">
+            <div class="v-input__control">
+              <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-37" class="v-input__slot grey lighten-3" style="height: 60px;">
+                <div class="v-input__prepend-inner">
+                  <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true" class="v-icon notranslate mdi mdi-calendar theme--light"></i></div>
+                </div>
+                <div class="v-select__slot"><label for="input-37" class="v-label theme--light" style="left: 0px; position: absolute;">TODAS AS DATAS DE ALTERAÇÃO</label>
+                  <div class="v-select__selections"><input id="input-37" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                  </div><input type="hidden">
+                </div>
+                <div class="v-menu">
+                  <!---->
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v-input pl-4 pr-4 theme--light v-text-field v-text-field--filled v-text-field--enclosed v-select">
+            <div class="v-input__control">
+              <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-43" class="v-input__slot grey lighten-3" style="height: 60px;">
+                <div class="v-input__prepend-inner">
+                  <div class="v-input__icon v-input__icon--prepend-inner"><i aria-hidden="true" class="v-icon notranslate mdi mdi-dots-horizontal theme--light"></i></div>
+                </div>
+                <div class="v-select__slot"><label for="input-43" class="v-label theme--light" style="left: 0px; position: absolute;">ATIVOS E INATIVOS</label>
+                  <div class="v-select__selections"><input id="input-43" readonly="readonly" type="text" aria-readonly="false" autocomplete="off"></div>
+                  <div class="v-input__append-inner">
+                    <div class="v-input__icon v-input__icon--append"><i aria-hidden="true" class="v-icon notranslate mdi mdi-menu-down theme--light"></i></div>
+                  </div><input type="hidden">
+                </div>
+                <div class="v-menu">
+                  <!---->
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <button type="button" class="ma-8 v-btn v-btn--outlined theme--light v-size--x-large pink--text text--darken-1"><span class="v-btn__content">
+      APLICAR
+    </span></button>
+      </div>
+      <div class="v-navigation-drawer__border"></div>
+    </aside>
+    <aside class="v-navigation-drawer v-navigation-drawer--close v-navigation-drawer--fixed v-navigation-drawer--is-mobile v-navigation-drawer--right v-navigation-drawer--temporary theme--light" style="height: 100%; top: 0px; transform: translateX(100%); width: 30vw;">
+      <div class="v-navigation-drawer__content">
+        <header class="elevation-1 v-sheet theme--light v-toolbar grey lighten-5" style="height: 90px;">
+          <div class="v-toolbar__content" style="height: 90px;">
+            <div class="v-toolbar__title">MENU</div> <button type="button" class="v-btn v-btn--absolute v-btn--is-elevated v-btn--has-bg v-btn--right theme--light v-size--small elevation-1"><span class="v-btn__content">X</span></button>
+          </div>
+        </header> <button type="button" class="btn user-btn text-body-2 pl-0 ma-6 v-btn v-btn--outlined v-btn--tile theme--light elevation-1 v-size--default pink--text text--darken-1"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate ma-2 create-user mdi mdi-account theme--light"></i>
+      INCLUIR USUÁRIO
+    </span></button> <button type="button" class="btn user-btn text-body-2 pl-0 ma-6 v-btn v-btn--outlined v-btn--tile theme--light elevation-1 v-size--default pink--text text--darken-1"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate ma-2 create-user mdi mdi-tune theme--light"></i>
+      FILTROS
+    </span></button>
+        <form class="mt-3">
+          <div class="v-input mx-4 theme--light v-text-field v-text-field--enclosed v-text-field--outlined">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <fieldset aria-hidden="true">
+                  <legend style="width: 0px;"><span>​</span></legend>
+                </fieldset>
+                <div class="v-text-field__slot"><label for="input-57" class="v-label theme--light" style="left: 0px; position: absolute;">Pesquisar...</label><input id="input-57" type="text"></div>
+                <div class="v-input__append-inner">
+                  <div class="v-input__icon v-input__icon--clear"><button disabled="disabled" type="button" aria-label="clear icon" class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"></button></div>
+                </div>
+                <div class="v-input__append-inner">
+                  <div class="v-input__icon v-input__icon--append"><button type="button" aria-label="append icon" class="v-icon notranslate v-icon--link mdi mdi-magnify theme--light"></button></div>
+                </div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="v-navigation-drawer__border"></div>
+    </aside>
+  </div>
+</main>
+`;

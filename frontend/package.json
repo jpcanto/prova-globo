@@ -41,14 +41,5 @@
     "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.7.2"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.vue$": "vue-jest",
-      "^.+\\.js$": "babel-jest"
-    },
-    "setupFiles": [
-      "./src/tests/jest.config.js"
-    ]
   }
 }

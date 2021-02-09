@@ -2,7 +2,7 @@ import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 import { mount, createLocalVue } from '@vue/test-utils';
 
-import Header from '../components/Header.vue';
+import Header from '@/components/Header.vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -26,6 +26,11 @@ describe('Home suit', () => {
             __v: 0
           }
         ]
+      },
+      getters: {
+        getInclusionItems: () => ['28/05/2019'],
+        getAlterationItems: () => ['30/05/2019'],
+        getActiveItems: () => ['ATIVO']
       }
     });
 
