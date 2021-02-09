@@ -28,6 +28,9 @@ export default {
       &:last-of-type {
         padding: 0 30px !important;
       }
+      &:first-of-type div {
+        display: none;
+      }
     }
   }
   tbody tr {
