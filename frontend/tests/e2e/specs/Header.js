@@ -25,7 +25,7 @@ describe('Header suit', () => {
     cy.get('.v-navigation-drawer').should('not.visible');
   });
 
-  it('validate inclusion date filter', () => {
+  it('validate create user', () => {
     cy.visit('/');
 
     cy.contains('button', 'INCLUIR USUÁRIO').click();
