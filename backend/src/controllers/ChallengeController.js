@@ -74,6 +74,12 @@ class ChallengeController {
 
   three(req, res) {
     const { array } = req.body;
+
+    if (!Array.isArray(array))
+      return res.status(400).json({
+        message: `Erro, O parâmetro 'array' precisa ser do tipo Array`,
+      });
+
     let results = [];
 
     for (let i = 0; i <= array.length - 1; i++) {
