@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main class="mb-10 elevation-3">
     <v-app-bar color="grey lighten-3" dark flat height="100">
       <v-container class="ma-0 align-center" fill-height fluid>
         <form @submit.prevent="setSearchBarFilter">
