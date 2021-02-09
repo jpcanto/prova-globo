@@ -36,7 +36,8 @@ OBS: Se após rodar os comandos acima, o projeto não abrir no browser automatic
 
 ### Para executar os testes, executar o comando:
 
-`yarn test` ou `npm test`
+- Para testes unitários: `yarn test:unit` ou `npm test:unit` (tecnologia utilzada: jest)
+- Para testes e2e: `yarn test:e2e` ou `npm test:e2e` (tecnologia utilzada: cypress)
 
 ## Para executar os desafios do backend eu preciso:
 
