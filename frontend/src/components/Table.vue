@@ -108,6 +108,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.v-data-table {
+  @media only screen and (min-width: 1024px) {
+    width: 90vw;
+    margin: auto;
+  }
+}
 .v-main {
   padding: 32px;
   @media only screen and (max-width: 770px) {
