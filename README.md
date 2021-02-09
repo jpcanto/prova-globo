@@ -42,12 +42,16 @@ OBS: Se após rodar os comandos acima, o projeto não abrir no browser automatic
 
 ### API: 'http://localhost:3333'
 
-desafio 1 - endpoint: '/challenge/one'
+desafio 1:
 
+- Endpoint: `/challenge/one`
+- Method: `POST`
 - Payload: `{ "array": [2, 7, 11, 15, 1, 10, 8], "target": 9 }`
 - OBS: Testar um payload onde o resultado deve ser negativo (nenhum par tem a soma igual ao alvo)
 
-desafio 2 - endpoint: '/challenge/two/:string'
+desafio 2:
 
+- Endpoint: `/challenge/two/:string`
+- Method: `GET`
 - Req Param: `({})`
 - OBS: Alterar no endpoint ':string' pelo req Param forncedio, testar um Req param onde o resultado deve ser negativo
