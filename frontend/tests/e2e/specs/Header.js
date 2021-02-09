@@ -33,9 +33,14 @@ describe('Header suit', () => {
     cy.get('.v-dialog .email-input').type('{selectall}{backspace}Teste_Cypress@teste.com.br');
     cy.get('.v-dialog .rules-input').type('02');
 
-    cy.get("[data-cy=status-input]").parent().click();
-    cy.get(".v-menu__content").contains("INATIVO").click();
+    cy.get('[data-cy=status-input]')
+      .parent()
+      .click();
+    cy.get('.v-menu__content')
+      .contains('INATIVO')
+      .click();
 
     cy.contains('Salvar').click();
+    cy.contains('Usuário criado com sucesso').should('be.exist');
   });
 });
