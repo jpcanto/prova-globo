@@ -1,7 +1,9 @@
 <template>
   <div class="notfound">
     <v-img contain src="../assets/404.png"></v-img>
-    <v-btn x-large absolute top outlined color="purple" light @click="handleClick" class="btn ma-10">Voltar á Página inicial</v-btn>
+    <v-btn x-large absolute top outlined color="purple" light @click="handleClick" class="btn ma-10"
+      >Voltar á Página inicial</v-btn
+    >
   </div>
 </template>
 

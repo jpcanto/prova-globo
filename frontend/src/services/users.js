@@ -18,8 +18,8 @@ export const editUser = (id, reqBody) => {
   return api.put(url, reqBody).then(res => res.data);
 };
 
-export const createUser = (payload) => {
+export const createUser = payload => {
   const url = '/sessions';
-  
+
   return api.post(url, payload).then(res => res.data);
 };
