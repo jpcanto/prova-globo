@@ -14,11 +14,11 @@
           <v-card-actions>
             <v-spacer></v-spacer>
 
-            <v-btn color="pink accent-4" text @click="handleVisible">
+            <v-btn color="pink darken-1" text @click="handleVisible">
               Cancelar
             </v-btn>
 
-            <v-btn color="pink accent-4" text @click="handleClick">
+            <v-btn color="pink darken-1" text @click="handleClick">
               Deletar
             </v-btn>
           </v-card-actions>
@@ -72,7 +72,7 @@
                     :items="['ATIVO', 'INATIVO']"
                     menu-props="auto"
                     label="Status"
-                    color="pink accent-4"
+                    color="pink darken-1"
                     background-color="white"
                     height="50"
                     filled
@@ -84,10 +84,10 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="pink accent-4" text @click="handleVisible">
+            <v-btn color="pink darken-1" text @click="handleVisible">
               Cancelar
             </v-btn>
-            <v-btn color="pink accent-4" text @click="handleClick">
+            <v-btn color="pink darken-1" text @click="handleClick">
               Salvar
             </v-btn>
           </v-card-actions>

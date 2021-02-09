@@ -32,7 +32,7 @@
       v-model="page"
       :length="pageCount"
       class="ma-8"
-      color="pink accent-4"
+      color="pink darken-1"
     ></v-pagination>
   </v-main>
 </template>

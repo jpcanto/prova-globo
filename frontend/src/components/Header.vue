@@ -34,7 +34,7 @@
         <v-btn
           elevation="1"
           tile
-          color="pink accent-4"
+          color="pink darken-1"
           class="btn user-btn text-body-2 pl-0 mr-6"
           @click="handleUser"
         >
@@ -73,7 +73,7 @@
           menu-props="auto"
           label="TODAS AS DATAS DE INCLUSÃO"
           prepend-inner-icon="mdi-calendar"
-          color="pink accent-4"
+          color="pink darken-1"
           background-color="grey lighten-3"
           height="60"
           filled
@@ -85,7 +85,7 @@
           menu-props="auto"
           label="TODAS AS DATAS DE ALTERAÇÃO"
           prepend-inner-icon="mdi-calendar"
-          color="pink accent-4"
+          color="pink darken-1"
           background-color="grey lighten-3"
           height="60"
           filled
@@ -97,7 +97,7 @@
           menu-props="auto"
           label="ATIVOS E INATIVOS"
           prepend-inner-icon="mdi-dots-horizontal"
-          color="pink accent-4"
+          color="pink darken-1"
           background-color="grey lighten-3"
           height="60"
           filled
@@ -108,7 +108,7 @@
         x-large
         outlined
         width="-webkit-fill-available"
-        color="pink accent-4"
+        color="pink darken-1"
         class="ma-8"
         @click="setComboFilters"
       >
