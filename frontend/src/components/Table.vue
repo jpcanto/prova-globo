@@ -98,9 +98,6 @@ export default {
     }
   },
   methods: {
-    filter(value, search) {
-      return value != null && search != null && value.indexOf(search) !== -1;
-    },
     handleButtons(currentRow) {
       this.$store.dispatch('handleRow', currentRow);
     },
