@@ -56,3 +56,9 @@ desafio 2:
 - Method: `GET`
 - Req Param: `({})`
 - OBS: Alterar no endpoint ':string' pelo req Param forncedio, testar um Req param onde o resultado deve ser negativo
+
+desafio 2:
+
+- Endpoint: `/challenge/three`
+- Method: `POST`
+- Payload: `{ "array": [7,1,5,3,6,4] }`
