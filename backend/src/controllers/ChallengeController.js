@@ -90,7 +90,7 @@ class ChallengeController {
       }
     }
 
-    results = results.filter((result) => result[0] > result[1]);
+    results = results.filter((result) => result[0] < result[1]);
     let result = Math.max(...results.map((result) => result[1] - result[0]));
 
     return res.status(200).json({
