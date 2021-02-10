@@ -20,7 +20,6 @@ Eu, como usuário, gostaria de ter uma aplicação onde pudesse gerenciar usuár
 ## Para executar a aplicação eu preciso:
 
 - Para executar os passos a seguir, navegar antes para as pastas (backend, frontend).
-- EXECUTAR O PROJETO BACKEND ANTES, PARA O CORRETO CONSUMO DO FRONT.
 - Os passos devem ser executados nas 2 pastas.
 - Antes de executar o projeto frontend, executar o projeto backend.
 - Não alterar a porta de execução do projeto VUE (frontend), caso seja necessário, alterar no projeto backend a porta de liberação no CORS (backend/src/app.js)
