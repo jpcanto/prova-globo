@@ -57,7 +57,7 @@ desafio 2:
 - Req Param: `({})`
 - OBS: Alterar no endpoint ':string' pelo req Param forncedio, testar um Req param onde o resultado deve ser negativo
 
-desafio 2:
+desafio 3:
 
 - Endpoint: `/challenge/three`
 - Method: `POST`
