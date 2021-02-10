@@ -62,3 +62,9 @@ desafio 3:
 - Endpoint: `/challenge/three`
 - Method: `POST`
 - Payload: `{ "array": [7,1,5,3,6,4] }`
+
+desafio 4:
+
+- Endpoint: `/challenge/four`
+- Method: `POST`
+- Payload: `{ "array": [0,1,0,2,1,0,1,3,2,1,2,1] }`
