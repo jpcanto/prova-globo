@@ -103,6 +103,46 @@ class ChallengeController {
       message: `O maior lucro possível é ${result}`,
     });
   }
+
+  four(req, res) {
+    const { array } = req.body;
+
+    if (!Array.isArray(array))
+      return res.status(400).json({
+        message: `Erro, O parâmetro 'array' precisa ser do tipo Array`,
+      });
+
+    let leftBar = -1;
+    let rightBar = -1;
+    let base;
+    let finalValue = 0;
+
+    for (let i = 0; i < array.length; i++) {
+      if (leftBar < 0 && array[i] > array[i + 1]) {
+        leftBar = i;
+      }
+
+      if (leftBar > 0 && array[i] >= array[leftBar] && leftBar < i) {
+        rightBar = i;
+
+        for (let j = leftBar + 1; j < rightBar; j++) {
+          base = leftBar < rightBar ? array[leftBar] : array[rightBar];
+
+          finalValue += base - array[j];
+        }
+        array.filter((x) => x >= array[rightBar]).length === 1
+          ? (leftBar = -1)
+          : (leftBar = rightBar);
+
+        rightBar = -1;
+        if (leftBar === array.length) break;
+      }
+    }
+
+    return res.status(200).json({
+      message: `O acúmulo de água é de: ${finalValue}`,
+    });
+  }
 }
 
 export default new ChallengeController();

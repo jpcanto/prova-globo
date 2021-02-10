@@ -13,5 +13,6 @@ routes.post("/sessions", SessionController.store);
 routes.post("/challenge/one", ChallengeController.one);
 routes.get("/challenge/two/:string", ChallengeController.two);
 routes.post("/challenge/three/", ChallengeController.three);
+routes.post("/challenge/four/", ChallengeController.four);
 
 export default routes;
