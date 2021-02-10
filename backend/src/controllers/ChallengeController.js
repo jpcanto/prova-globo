@@ -130,7 +130,7 @@ class ChallengeController {
 
           finalValue += base - array[j];
         }
-        array.filter((x) => x >= array[rightBar]).length === 1
+        array.slice(rightBar).filter((x) => x >= array[rightBar]).length === 1
           ? (leftBar = -1)
           : (leftBar = rightBar);
 
