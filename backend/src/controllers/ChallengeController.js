@@ -91,6 +91,12 @@ class ChallengeController {
     }
 
     results = results.filter((result) => result[0] < result[1]);
+
+    if (!results.length)
+      return res.status(200).json({
+        message: `Não foi obtido lucro, o valor de venda foi igual ao valor de compra`,
+      });
+
     let result = Math.max(...results.map((result) => result[1] - result[0]));
 
     return res.status(200).json({
